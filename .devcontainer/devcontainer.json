@@ -2,36 +2,14 @@
   "name": "Kimi 2.6 Zombie Node",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
   "features": {
-    "ghcr.io/devcontainers/features/python:1": {
-      "version": "3.11"
-    },
+    "ghcr.io/devcontainers/features/python:1": { "version": "3.11" },
     "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "ms-python.python",
-        "ms-python.vscode-pylance"
-      ],
-      "settings": {
-        "python.defaultInterpreterPath": "/usr/local/bin/python",
-        "terminal.integrated.defaultProfile.linux": "bash"
-      }
-    }
-  },
   "forwardPorts": [8080, 5000],
   "portsAttributes": {
-    "8080": {
-      "label": "Kimi API",
-      "onAutoForward": "notify",
-      "visibility": "public"
-    },
-    "5000": {
-      "label": "C2 Control",
-      "onAutoForward": "notify",
-      "visibility": "public"
-    }
+    "8080": { "label": "Kimi API", "onAutoForward": "notify", "visibility": "public" },
+    "5000": { "label": "C2 Control", "onAutoForward": "notify", "visibility": "public" }
   },
   "postCreateCommand": "bash .devcontainer/boot.sh",
   "postStartCommand": "bash .devcontainer/keepalive.sh",
